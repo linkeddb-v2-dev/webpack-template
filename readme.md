@@ -15,7 +15,7 @@
 		|-css               (第三方css)
 		|-js                (简单的第三方js)
 		|-font              (字体)
-		|-vendor            (复杂的自己目录的扩展插件，比如ueditor)
+		|-vendor            (复杂的第三方扩展插件，比如ueditor)
 
 	|-components            (自己开发的可以多项目复用的库)
 	    |-common.css        (案例：可复用的css)
@@ -67,6 +67,28 @@
 - 不要改结构
 
 - 此项目只用于拉取，谨慎提交，建议下载压缩包使用
+
+## 使用
+
+安装依赖：
+
+npm install
+
+devserver开发：
+
+npm run server
+
+监听文件模式开发：
+
+npm run watch
+
+开发环境打包:
+
+npm run dev
+
+生成环境打包:
+
+npm run build
 
 
 

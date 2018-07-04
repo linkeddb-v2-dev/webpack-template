@@ -32,7 +32,6 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "build:env": "webpack --config ./webpack.env.config.js",
     "server": "webpack-dev-server --mode development  --hot --host 0.0.0.0 ",
     "watch": "webpack --mode development --watch"
   }
