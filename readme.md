@@ -54,7 +54,7 @@
 
 - css引用资源采用相对路径    
 
-- html引用资源采用相对路径  <img  src="../assets/images/xx.png" />
+- html引用资源采用相对路径  ```<img  src="../assets/images/xx.png" />```
 
 - assets目录存放静态资源 (不会改变的资源，自己写的组件放到components中)
 
