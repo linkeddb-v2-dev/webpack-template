@@ -29,6 +29,19 @@ var getHtmlConfig = function(name, title){
     };
 };
 
+/* 自动获取多入口  有缺陷，暂未使用 */
+var glob = require('glob');
+var getEntry = function () {
+    var entry = {};
+    glob.sync('./src/pages/**/*.js').forEach(function (name) {
+        var n = name.slice(name.lastIndexOf('source/') + 7, name.length - 3);
+        n = n.slice(0, n.lastIndexOf('/'));
+        entry[n] = name;
+    });
+    console.log(entry);
+    return entry;
+};
+
 
 module.exports = {
 
