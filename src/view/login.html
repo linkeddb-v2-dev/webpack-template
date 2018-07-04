@@ -1,0 +1,10 @@
+
+
+<!--
+   这里有个坑，html引用html，需要在语句前加html-loader，同时去掉webpack中全局的html-loader配置
+-->
+<%= require('html-loader!./layout/header.html') %>
+<body id="css-zen-garden">
+
+</body>
+</html>

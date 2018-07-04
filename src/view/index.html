@@ -1,0 +1,29 @@
+
+
+<!--
+   这里有个坑，html引用html，需要在语句前加html-loader，同时去掉webpack中全局的html-loader配置
+-->
+<%= require('html-loader!./layout/header.html') %>
+
+<body>
+
+    <!--<img src="../assets/image/logo.png" alt="">-->
+
+    <!--<div class="box" id="template">-->
+
+    <!--</div>-->
+    <!--<div class="box indexPage">-->
+
+    <!--</div>-->
+    <!--<div class="box bgtest">-->
+
+    <!--</div>-->
+
+    <!--<div class="box logo">-->
+
+    <!--</div>-->
+
+    <%= require('html-loader!./layout/list.html') %>
+
+</body>
+</html>
