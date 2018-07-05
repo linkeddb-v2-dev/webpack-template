@@ -1,5 +1,5 @@
 
 
-require('./index.css')
+require('./index.css');
 
-console.log('login')
+console.log('login');

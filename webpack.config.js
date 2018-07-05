@@ -47,13 +47,15 @@ module.exports = {
 
     // 入口文件的配置项，可以指定多个入口起点
     entry: {
-        'index' : './src/pages/index/index.js',
-        'login' : './src/pages/login/index.js',
+        'index_index' : './src/pages/index/index.js',
+        'index_login' : './src/pages/login/index.js',
     },
 
     // 出口文件的配置项，只可指定一个输出配置
     output: {
         path: path.resolve(__dirname, './dist/'),
+        // publicPath 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换
+        publicPath: "/",        // 此处
         filename: 'js/[name].js',
     },
 
@@ -110,7 +112,8 @@ module.exports = {
                 use:[{
                     loader:'url-loader',
                     options:{
-                        outputPath:'images/',
+                        outputPath:'assets/image/',
+                        name:'[name].[ext]',
                         limit:8000, // 表示小于8kb的图片转为base64,大于50kb的是路径
                     }
                 }]
@@ -129,12 +132,12 @@ module.exports = {
         ]),
 
         // 生成html
-        new HtmlWebpackPlugin(getHtmlConfig('index','首页')),
-        new HtmlWebpackPlugin(getHtmlConfig('login','登录')),
+        new HtmlWebpackPlugin(getHtmlConfig('index_index','首页')),
+        new HtmlWebpackPlugin(getHtmlConfig('index_login','登录')),
 
 
         // 打开浏览器url
-        new OpenBrowserPlugin({ url: 'http://localhost:8000/view' }),
+        new OpenBrowserPlugin({ url: 'http://localhost:8000/view/index_index.html' }),
 
 
 

@@ -61,6 +61,8 @@
 
 - html文件的命名与对应的page里的js保持一致性
 
+- 命名规范  （模块和文件名之间 _ 链接 例如 index_loginPage.html）
+
 - 不要改结构
 
 - eslint最好在编辑器中配置，编写时即可检查
@@ -88,6 +90,12 @@ npm run dev
 生成环境打包:
 
 npm run build
+
+查看打包后的站点：
+
+node websit.js
+
+然后浏览器浏览：  localhost:3000/view/index.html 预览
 
 
 
