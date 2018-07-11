@@ -1,5 +1,3 @@
-
-
-require('./index.css');
+require('./index.less');
 
 console.log('login');

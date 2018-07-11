@@ -1,5 +1,5 @@
 {
-  "name": "linkeddb-template",
+  "name": "webpack-template",
   "version": "1.0.0",
   "description": "webpack快速开发模板",
   "main": "src/index.js",
@@ -31,9 +31,20 @@
     "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "server": "webpack-dev-server --mode development  --hot --host 0.0.0.0 ",
-    "watch": "webpack --mode development --watch"
-  }
+    "watch": "webpack --mode development --watch --progress --colors"
+  },
+  "browserslist": [
+    "defaults",
+    "ie > 6",
+    "last 2 versions",
+    "> 1%",
+    "iOS >= 7",
+    "last 3 iOS versions",
+    "Firefox > 20",
+    "Android > 4.1"
+  ]
 }

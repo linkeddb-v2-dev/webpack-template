@@ -1,19 +1,10 @@
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 2018/7/5
- * Time: 18:49
- */
+let express = require('express');
 
-
-var express = require('express')
-
-var app = express();
+let app = express();
 
 app.use(express.static('dist'));
 
-var server = app.listen(3000, function () {
+let server = app.listen(3000, function () {
 
-    console.log('websit');
+  console.log('websit');
 });
-
