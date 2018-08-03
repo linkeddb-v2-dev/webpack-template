@@ -100,4 +100,5 @@ npm run build
 node websit.js
 ```
 
-- 然后打开下面网址浏览: `localhost:3000/view/index.html`
+- 然后打开终端的网址可以浏览静态网页: `localhost:3000/view/index_index.html`
+- 浏览其他网页则需要修改地址栏中的地址 `index_index.html` 为其他文件名
