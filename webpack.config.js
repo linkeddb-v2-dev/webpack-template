@@ -17,16 +17,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 打开浏览器
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+// 源代码的根目录（本地物理文件路径）
+const SRC_PATH = './src/';
+
+// 打包后的资源根目录（本地物理文件路径）
+const ASSETS_BUILD_PATH = path.resolve(__dirname, './dist/');
+/* __dirname,  */
+
+// 资源根目录（可以是 CDN 上的绝对路径，或相对路径）
+// const ASSETS_PUBLIC_PATH = '/src/';
+
 // 获取html-webpack-plugin参数的方法
-let getHtmlConfig = function(name, title){
+let getHtmlConfig = function (name, title) {
   return {
-    template    : './src/view/' + name + '.html',   // html模板路径
-    filename    : 'view/' + name + '.html',         // 生成的html存放路径，相对于 path
+    template: SRC_PATH + 'view/' + name + '.html',   // html模板路径
+    filename: 'view/' + name + '.html',         // 生成的html存放路径，相对于 path
     // favicon     : './favicon.ico',               // favicon路径
-    title       : title,                            // html模板路径
-    inject      : true,                             // 允许插件修改哪些内容，包括head与body
-    hash        : true,                             // 为静态资源生成hash值
-    chunks      : [name],                           // 引入的模块
+    title: title,                            // html模板路径
+    inject: true,                             // 允许插件修改哪些内容，包括head与body
+    hash: true,                             // 为静态资源生成hash值
+    chunks: [name],                           // 引入的模块
     minify: {
       removeComments: true,                         // 移除HTML中的注释
       collapseWhitespace: false                     // 删除空白符与换行符
@@ -50,16 +60,16 @@ let getEntry = function () {
 module.exports = {
   // 入口文件的配置项，可以指定多个入口起点
   entry: {
-    'index_index': './src/pages/index/index.js',
-    'index_login': './src/pages/login/index.js',
+    'index_index': SRC_PATH + 'pages/index/index.js',
+    'index_login': SRC_PATH + 'pages/login/index.js',
   },
 
   // 出口文件的配置项，只可指定一个输出配置
   output: {
-    path: path.resolve(__dirname, './dist/'),
+    path: ASSETS_BUILD_PATH,
     // publicPath 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换
     publicPath: '/',        // 此处
-    filename: 'js/[name].js',
+    filename: 'js/[name]/[name].js',
   },
 
   // 外部扩展
@@ -130,13 +140,13 @@ module.exports = {
         // loader: 'style-loader!css-loader?importLoaders=1!postcss-loader!less-loader'
       },
       {
-        test:/\.(png|jpg|gif)$/,
-        use:[{
-          loader:'url-loader',
-          options:{
-            outputPath:'assets/image/',
-            name:'[name].[ext]',
-            limit:8000, // 表示小于8kb的图片转为base64,大于50kb的是路径
+        test: /\.(png|jpg|gif)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            outputPath: 'assets/image/',
+            name: '[name].[ext]',
+            limit: 8000, // 表示小于8kb的图片转为base64,大于50kb的是路径
           }
         }]
       }
@@ -145,31 +155,32 @@ module.exports = {
 
   plugins: [
     // 清空dist目录，第一个参数是要清理的目录的字符串数组
-    new CleanWebpackPlugin(['./dist/']),
+    new CleanWebpackPlugin([ASSETS_BUILD_PATH]),
 
     // 复制文件，把src的img文件复制到dist下
     new CopyWebpackPlugin([
-      {from:path.resolve(__dirname,'./src/assets/'),to:path.resolve(__dirname,'./dist/assets/')},
+      {from: path.resolve(__dirname, SRC_PATH + 'assets/'), to: path.resolve(__dirname, ASSETS_BUILD_PATH + 'assets/')},
+      // {from:path.resolve(__dirname,'./src/pages/[name]/[name].css'),to:path.resolve(__dirname, ASSETS_BUILD_PATH + 'js/[name]/[name].css')},
     ]),
 
     // 生成html
-    new HtmlWebpackPlugin(getHtmlConfig('index_index','首页')),
-    new HtmlWebpackPlugin(getHtmlConfig('index_login','登录')),
+    new HtmlWebpackPlugin(getHtmlConfig('index_index', '首页')),
+    new HtmlWebpackPlugin(getHtmlConfig('index_login', '登录')),
 
     // 打开浏览器url
-    new OpenBrowserPlugin({ url: 'http://localhost:8000/view/index_index.html' }),
+    new OpenBrowserPlugin({url: 'http://localhost:8000/view/index_index.html'}),
   ],
 
-  devServer:{
-    contentBase:path.resolve(__dirname,'./dist/'),
-    host:'localhost',
+  devServer: {
+    contentBase: ASSETS_BUILD_PATH,
+    host: 'localhost',
     disableHostCheck: true, // 绕过主机检查
-    hot:true,
+    hot: true,
     https: false,           // 是否采用https，默认是http
-    inline:true,
-    progress:true,          // 输出运行进度到控制台。
-    watchContentBase:true,  // 观察contentBase选项提供的文件。文件更改将触发整页重新加载
-    compress:true,
-    port:8000
+    inline: true,
+    progress: true,          // 输出运行进度到控制台。
+    watchContentBase: true,  // 观察contentBase选项提供的文件。文件更改将触发整页重新加载
+    compress: true,
+    port: 8000
   }
 };
