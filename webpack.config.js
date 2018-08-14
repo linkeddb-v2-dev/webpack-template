@@ -159,7 +159,7 @@ module.exports = {
 
     // 复制文件，把src的img文件复制到dist下
     new CopyWebpackPlugin([
-      {from: path.resolve(__dirname, SRC_PATH + 'assets/'), to: path.resolve(__dirname, ASSETS_BUILD_PATH + 'assets/')},
+      {from: SRC_PATH + 'assets/', to: path.resolve(ASSETS_BUILD_PATH, './assets/')},
       // {from:path.resolve(__dirname,'./src/pages/[name]/[name].css'),to:path.resolve(__dirname, ASSETS_BUILD_PATH + 'js/[name]/[name].css')},
     ]),
 
