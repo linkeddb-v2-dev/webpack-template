@@ -140,6 +140,28 @@ module.exports = {
         // loader: 'style-loader!css-loader?importLoaders=1!postcss-loader!less-loader'
       },
       {
+        test: /\.scss$/,
+        // use: [
+        //   'style-loader',
+        //   {
+        //     loader: 'css-loader',
+        //     options: {
+        //       importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+        //     }
+        //   },
+        //   {
+        //     loader: 'postcss-loader',
+        //     options: {
+        //       config: {
+        //         path: 'postcss.config.js'  // 这个得在项目根目录创建此文件
+        //       }
+        //     }
+        //   },
+        //   'sass-loader'
+        // ],
+        loader: 'style-loader!css-loader!postcss-loader!sass-loader'
+      },
+      {
         test: /\.(png|jpg|gif)$/,
         use: [{
           loader: 'url-loader',
