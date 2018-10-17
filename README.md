@@ -43,9 +43,9 @@
         |-index.js
         |-login.js
     |-css                   (用于存放编译后的css，默认不生成此目录)
-        |-common.css   
-         
+        |-common.css
 ```
+
 ## 注意：
 
 - css 引用资源采用相对路径
@@ -60,7 +60,7 @@
 
 - html 文件的命名与对应的 page 里的 js 保持一致性
 
-- 命名规范 （模块和文件名之间 _ 链接 例如 index_loginPage.html）
+- 命名规范 （模块和文件名之间 `_` 链接 例如 `index_loginPage.html`）
 
 - **不要改结构**
 
@@ -70,36 +70,41 @@
 
 ## 安装依赖
 
-```
+```bash
 npm install
 ```
 
 ## 开发
 
 - server 模式开发：（自动打开浏览器，修改js和less文件后，自动刷新）
-```
+
+```bash
 npm run server
 ```
 
 - watch 监听文件模式开发：（修改js和css文件后，自动编译）
-```
+
+```bash
 npm run watch
 ```
 
 - 开发环境打包:（打包成开发环境代码）
-```
+
+```bash
 npm run dev
 ```
 
 - 生成环境打包:（打包成生产环境代码）
-```
+
+```bash
 npm run build
 ```
 
 ## 查看打包后的站点
 
 - 打包代码生成 dist 目录后，在根目录执行，可以访问打包后的文件
-```
+
+```bash
 node websit.js
 ```
 

@@ -30,16 +30,16 @@ const ASSETS_BUILD_PATH = path.resolve(__dirname, './dist/');
 // 获取html-webpack-plugin参数的方法
 let getHtmlConfig = function (name, title) {
   return {
-    template: SRC_PATH + 'view/' + name + '.html',   // html模板路径
-    filename: 'view/' + name + '.html',         // 生成的html存放路径，相对于 path
+    template: SRC_PATH + 'view/' + name + '.html', // html模板路径
+    filename: 'view/' + name + '.html', // 生成的html存放路径，相对于 path
     // favicon     : './favicon.ico',               // favicon路径
-    title: title,                            // html模板路径
-    inject: true,                             // 允许插件修改哪些内容，包括head与body
-    hash: true,                             // 为静态资源生成hash值
-    chunks: [name],                           // 引入的模块
+    title: title, // html模板路径
+    inject: true, // 允许插件修改哪些内容，包括head与body
+    hash: true, // 为静态资源生成hash值
+    chunks: [name], // 引入的模块
     minify: {
-      removeComments: true,                         // 移除HTML中的注释
-      collapseWhitespace: false                     // 删除空白符与换行符
+      removeComments: true, // 移除HTML中的注释
+      collapseWhitespace: false // 删除空白符与换行符
     }
   };
 };
@@ -68,7 +68,7 @@ module.exports = {
   output: {
     path: ASSETS_BUILD_PATH,
     // publicPath 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换
-    publicPath: '/',        // 此处
+    publicPath: '/', // 此处
     filename: 'js/[name]/[name].js',
   },
 
@@ -131,7 +131,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: 'postcss.config.js'  // 这个得在项目根目录创建此文件
+                path: 'postcss.config.js' // 这个得在项目根目录创建此文件
               }
             }
           },
@@ -181,7 +181,10 @@ module.exports = {
 
     // 复制文件，把src的img文件复制到dist下
     new CopyWebpackPlugin([
-      {from: SRC_PATH + 'assets/', to: path.resolve(ASSETS_BUILD_PATH, './assets/')},
+      {
+        from: SRC_PATH + 'assets/',
+        to: path.resolve(ASSETS_BUILD_PATH, './assets/')
+      },
       // {from:path.resolve(__dirname,'./src/pages/[name]/[name].css'),to:path.resolve(__dirname, ASSETS_BUILD_PATH + 'js/[name]/[name].css')},
     ]),
 
@@ -190,7 +193,9 @@ module.exports = {
     new HtmlWebpackPlugin(getHtmlConfig('index_login', '登录')),
 
     // 打开浏览器url
-    new OpenBrowserPlugin({url: 'http://localhost:8000/view/index_index.html'}),
+    new OpenBrowserPlugin({
+      url: 'http://localhost:8000/view/index_index.html'
+    }),
   ],
 
   devServer: {
@@ -198,10 +203,10 @@ module.exports = {
     host: 'localhost',
     disableHostCheck: true, // 绕过主机检查
     hot: true,
-    https: false,           // 是否采用https，默认是http
+    https: false, // 是否采用https，默认是http
     inline: true,
-    progress: true,          // 输出运行进度到控制台。
-    watchContentBase: true,  // 观察contentBase选项提供的文件。文件更改将触发整页重新加载
+    progress: true, // 输出运行进度到控制台。
+    watchContentBase: true, // 观察contentBase选项提供的文件。文件更改将触发整页重新加载
     compress: true,
     port: 8000
   }
