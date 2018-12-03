@@ -2,8 +2,8 @@
 require('./index.less');
 
 /* js模块测试 引入assets  引入component  */
-const template = require('../../assets/js/template-web');
-import {test} from '../../components/util.js';
+const template = require('../../assets/vendor/template-web/template-web');
+import {test} from '../../assets/utils/util.js';
 test(5);
 
 /* 模板引擎测试 */

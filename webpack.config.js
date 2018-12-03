@@ -166,7 +166,7 @@ module.exports = {
         use: [{
           loader: 'url-loader',
           options: {
-            outputPath: 'assets/image/',
+            outputPath: 'assets/images/',
             name: '[name].[ext]',
             limit: 8000, // 表示小于8kb的图片转为base64,大于50kb的是路径
           }
@@ -182,10 +182,17 @@ module.exports = {
     // 复制文件，把src的img文件复制到dist下
     new CopyWebpackPlugin([
       {
-        from: SRC_PATH + 'assets/',
-        to: path.resolve(ASSETS_BUILD_PATH, './assets/')
+        from: SRC_PATH + 'assets/images',
+        to: path.resolve(ASSETS_BUILD_PATH, './assets/images')
       },
-      // {from:path.resolve(__dirname,'./src/pages/[name]/[name].css'),to:path.resolve(__dirname, ASSETS_BUILD_PATH + 'js/[name]/[name].css')},
+      {
+        from: SRC_PATH + 'assets/lib',
+        to: path.resolve(ASSETS_BUILD_PATH, './assets/lib')
+      },
+      {
+        from: SRC_PATH + 'assets/vendor',
+        to: path.resolve(ASSETS_BUILD_PATH, './assets/vendor')
+      },
     ]),
 
     // 生成html

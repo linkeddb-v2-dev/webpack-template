@@ -8,7 +8,7 @@
   font-size: 24px;
 }
 .logo {
-  background: url(../assets/image/logo.png);
+  background: url(../../images/logo.png);
 }
 body {
   background-color: #333;
@@ -17,7 +17,7 @@ body {
   background: #2D2733;
 }
 .bgtest {
-  background: url("../../assets/image/logo.png");
+  background: url("../../assets/images/logo.png");
 }
 .box {
   display: block;

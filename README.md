@@ -7,41 +7,43 @@
 
 ```
 |-src
-  |-assets                (静态资源目录)
-    |-img               (图片)
-    |-css               (第三方css)
-    |-js                (简单的第三方js)
-    |-font              (字体)
-    |-vendor            (复杂的第三方扩展插件，比如ueditor)
-
-  |-components            (自己开发的可以多项目复用的库)
-      |-common.css        (案例：可复用的css)
-      |-util.js           (案例：util工具模块)
-      |-modal             (案例：带html的模块)
-          |-index.html
-          |-index.js
-          |-index.css
-  |-pages                 (页面模块，一个页面是一个模块，包含js，css)
-    |-index             (案例页面)
-        |-index.js
-        |-index.css
-    |-login
-        |-index.js
-        |-index.css
-    |-view                  (用于存放html页面)
-        |-layout            (用于存放公共的html)
-            |- header.html
-        |-index.html        (案例)
-        |-login.html
-
+| |-assets                (静态资源目录)
+| | |-images               (图片)
+| | |-lib               (图片)
+| | |  |-css               (公共css)
+| | |  |-font              (字体)
+| | |-utils                (工具类)
+| | |  |-api.js                (用到的接口集合)
+| | |  |-http.js                (ajax 请求方式js)
+| | |  |-util.js                (一些工具js)
+| | |-vendor            (第三方扩展插件)
+| | |-config.js            (配置文件)
+| |-components            (自己开发的可以多项目复用的库)
+| |   |-modal             (案例：带html的模块)
+| |       |-index.html
+| |       |-index.js
+| |       |-index.css
+| |-pages                 (页面模块，一个页面是一个模块，包含js，css)
+|   |-index             (案例页面)
+|       |-index.js
+|       |-index.css
+|   |-login
+|       |-index.js
+|       |-index.css
+|   |-view                  (用于存放html页面)
+|       |-layout            (用于存放公共的html)
+|           |- header.html
+|       |-index.html        (案例)
+|       |-login.html
+|
 |-dist
     |-assets                (由src复制过来的，结构与src一样)
     |-view                  (存放编译生成的html文件)
-        |-index.html
-        |-login.html
+    |   |-index.html
+    |   |-login.html
     |-js                    (存放编译后的js)
-        |-index.js
-        |-login.js
+    |   |-index.js
+    |   |-login.js
     |-css                   (用于存放编译后的css，默认不生成此目录)
         |-common.css
 ```
@@ -66,7 +68,7 @@
 
 - eslint 最好在编辑器中配置，编写时即可检查
 
-- 此项目只用于拉取，谨慎提交，建议下载压缩包使用
+- <b style="color:red;">此项目只用于拉取，谨慎提交，建议下载压缩包使用</b>
 
 ## 安装依赖
 
