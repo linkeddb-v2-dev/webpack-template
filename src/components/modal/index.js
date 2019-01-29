@@ -1,6 +1,6 @@
 require('./index.css');
 
-let html = require('html-loader!./index.html');
+import html from 'html-loader!./index.html'
 
 class Modal{
 
@@ -24,6 +24,6 @@ function show(obj) {
  *
  * @type {{show: *}}
  */
-module.exports = {
+export {
   show,
 };

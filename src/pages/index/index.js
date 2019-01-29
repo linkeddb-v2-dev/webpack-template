@@ -1,8 +1,8 @@
 /* css模块测试  引入common.css  引入自己css */
-require('./index.less');
+import './index.less'
 
 /* js模块测试 引入assets  引入component  */
-const template = require('../../assets/vendor/template-web/template-web');
+import template from '../../assets/vendor/template-web/template-web'
 import {test} from '../../assets/utils/util.js';
 test(5);
 

@@ -1,3 +1,3 @@
-require('./index.less');
+import './index.less'
 
 console.log('login');

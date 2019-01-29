@@ -303,33 +303,4 @@ template {
 [hidden] {
   display: none;
 }
-.f16 {
-  font-size: 16px;
-}
-.f20 {
-  font-size: 20px;
-}
-.f24 {
-  font-size: 24px;
-}
-.logo {
-  background: url(../../images/logo.png);
-}
-body {
-  background-color: #333;
-}
-.indexPage {
-  background: #2D2733;
-}
-.bgtest {
-  background: url("../../assets/images/logo.png");
-}
-.box {
-  display: block;
-  height: 300px;
-  width: 300px;
-}
-.aaaaaaaaaaaaa {
-  display: flex;
-}
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=normalize@8.0.1.normalize.css.map */
